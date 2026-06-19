@@ -1,9 +1,39 @@
+// =========================================================================
+// PARTNERS CONFIGURATION
+// To add new partners, simply append an object to this list:
+//   { name: "Partner Name", logo: "assets/partners/logo-file.png" }
+// =========================================================================
+const PARTNERS = [
+    {
+        name: "Union Bank of India",
+        logo: "assets/partners/union-bank.png"
+    },
+    {
+        name: "Next Perfumes & Deodorant",
+        logo: "assets/partners/next-perfumes.png"
+    },
+    {
+        name: "Inflame Inspired Cooking",
+        logo: "assets/partners/inflame.png"
+    }
+];
+
 /* --------------------------------------------------
    Negi Enterprises - Landing Page Interactive Logic
    Handles: Navigation, Filters, FAQs, Forms, WhatsApp
    -------------------------------------------------- */
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    // === Render Partners Logo Grid ===
+    const partnersContainer = document.getElementById('partnersContainer');
+    if (partnersContainer) {
+        partnersContainer.innerHTML = PARTNERS.map(partner => `
+            <div class="partner-logo-item" title="${partner.name}">
+                <img src="${partner.logo}" alt="${partner.name} Logo">
+            </div>
+        `).join('');
+    }
 
     // === 1. Mobile Menu Toggle ===
     const menuToggle = document.getElementById('menuToggle');
@@ -39,29 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // === 2. Scroll Spy Navigation ===
-    const sections = document.querySelectorAll('section[id]');
-    
-    function scrollSpy() {
-        const scrollPosition = window.scrollY + 160; // Offset for sticky header
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-            
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                navItems.forEach(item => {
-                    item.classList.remove('active');
-                    if (item.getAttribute('href') === `#${sectionId}`) {
-                        item.classList.add('active');
-                    }
-                });
-            }
-        });
-    }
+    // Scroll Spy Navigation removed for multi-page routing
 
-    window.addEventListener('scroll', scrollSpy);
 
 
     // === 3. Portfolio Filters ===
