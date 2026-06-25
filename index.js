@@ -1,20 +1,20 @@
 // =========================================================================
 // PARTNERS CONFIGURATION
 // To add new partners, simply append an object to this list:
-//   { name: "Partner Name", logo: "assets/partners/logo-file.png" }
+//   { name: "Partner Name", logo: "/assets/partners/logo-file.png" }
 // =========================================================================
 const PARTNERS = [
     {
         name: "Union Bank of India",
-        logo: "assets/partners/union-bank.png"
+        logo: "/assets/partners/union-bank.png"
     },
     {
         name: "Next Perfumes & Deodorant",
-        logo: "assets/partners/next-perfumes.png"
+        logo: "/assets/partners/next-perfumes.png"
     },
     {
         name: "Inflame Inspired Cooking",
-        logo: "assets/partners/inflame.png"
+        logo: "/assets/partners/inflame.png"
     }
 ];
 
